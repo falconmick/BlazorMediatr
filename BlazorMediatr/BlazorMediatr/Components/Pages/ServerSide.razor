@@ -1,0 +1,14 @@
+﻿@page "/server-side"
+@using BlazorMediatr.Client.Pages
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
+@attribute [StreamRendering(true)]
+
+<PageTitle>Home</PageTitle>
+
+<Products></Products>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<AsyncData></AsyncData>

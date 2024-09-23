@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMediatr", "BlazorMedi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMediatr.Client", "BlazorMediatr\BlazorMediatr.Client\BlazorMediatr.Client.csproj", "{56FB2C4D-3BC0-4AE9-8630-F8C8A785728F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMediatr.Contract", "BlazorMediatr.Contract\BlazorMediatr.Contract.csproj", "{C19487FC-3892-4227-99C6-1A056673C59B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{56FB2C4D-3BC0-4AE9-8630-F8C8A785728F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56FB2C4D-3BC0-4AE9-8630-F8C8A785728F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56FB2C4D-3BC0-4AE9-8630-F8C8A785728F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C19487FC-3892-4227-99C6-1A056673C59B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C19487FC-3892-4227-99C6-1A056673C59B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C19487FC-3892-4227-99C6-1A056673C59B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C19487FC-3892-4227-99C6-1A056673C59B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,26 @@
+﻿@rendermode @(new InteractiveServerRenderMode(prerender: true))
+
+@if (_done)
+{
+    <p>
+        <em>Done...</em>
+    </p>
+}
+else
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+
+@code {
+    private bool _done = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(1500);
+        _done = true;
+    }
+
+}
+

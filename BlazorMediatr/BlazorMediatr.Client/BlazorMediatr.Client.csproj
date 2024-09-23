@@ -10,7 +10,25 @@
 
     <ItemGroup>
         <PackageReference Include="MediatR" Version="12.4.1" />
+        <PackageReference Include="MediatR.Contracts" Version="2.0.1" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.0"/>
+        <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
+        <PackageReference Include="NSwag.MSBuild" Version="14.1.0">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
     </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\BlazorMediatr.Contract\BlazorMediatr.Contract.csproj" />
+    </ItemGroup>
+
+    <PropertyGroup>
+        <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    </PropertyGroup>
+
+    <Target Name="NSwag" AfterTargets="PostBuildEvent" Condition=" '$(Configuration)' == 'Debug' ">
+        <Exec WorkingDirectory="$(ProjectDir)" EnvironmentVariables="ASPNETCORE_ENVIRONMENT=Development" Command="nswag run RestClients\Api\nswag.json /variables:Configuration=$(Configuration)" />
+    </Target>
 
 </Project>

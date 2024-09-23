@@ -1,0 +1,54 @@
+﻿@using BlazorMediatr.Contract.Models
+@using BlazorMediatr.Contract.Queries
+@using BlazorMediatr.Contract.Results
+@using MediatR
+@inject IMediator _mediatr
+@rendermode @(new InteractiveAutoRenderMode(prerender: false))
+
+
+<h3>Products</h3>
+
+<button @onclick="Reload">Reload</button>
+
+@if (_productList == null)
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+else
+{
+    <ul>
+        @foreach (var product in _productList)
+        {
+            <li>Name: @product.Name, Price: @product.Price</li>
+        }
+    </ul>
+}
+
+@code {
+    private List<Product>? _productList;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await UpdateProducts();
+            StateHasChanged();
+        }
+    }
+
+    private async Task Reload()
+    {
+        await UpdateProducts();
+    }
+
+    private async Task UpdateProducts()
+    {
+        _productList = null;
+        _productList = await _mediatr.Send(new GetAllProductsQuery("Server")).MatchAsync(
+            result => result.Products,
+            noRecords => new List<Product>());
+    }
+
+}
